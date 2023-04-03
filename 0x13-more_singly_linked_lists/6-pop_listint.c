@@ -6,17 +6,19 @@
  *
  * Return: the data value of the deleted node, or 0 if the list is empty
  */
-int pop_listint(listint_t **head);
+int pop_listint(listint_t **head)
 {
-	listint_t *popped;
-	int content;
+	int n;
+
+	listint_t *tmp;
+
 	if (*head == NULL)
 		return (0);
-	
-	popped = *head;
-	content = popped->n;
-	free(popped);
-	
+
+	tmp = *head;
+	n = (*head)->n;
 	*head = (*head)->next;
-	return (content);
+	free(tmp);
+
+	return (n);
 }
